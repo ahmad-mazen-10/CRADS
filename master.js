@@ -19,6 +19,8 @@ let category = document.getElementById('category')
 let submit = document.getElementById('submit')
 let search = document.getElementById('search');
 let deleteBtn = document.getElementById('deleteAll');
+let form = document.getElementById('form');
+
 
 
 let mood = 'create';
@@ -95,30 +97,53 @@ clear = () => {
 showData = () => {
     getTotal();
     let table = '';
-    for (let i = 0; i < dataPro.length ; i++) { 
+    for (let i = 0; i < dataPro.length; i++) {
         table +=
-        `<tr>
-            <td>${i+1}</td>
-            <td>${dataPro[i].title}</td>
-            <td>${dataPro[i].price}</td>
-            <td>${dataPro[i].taxes}</td>
-            <td>${dataPro[i].ads}</td>
-            <td>${dataPro[i].discount}</td>
-            <td>${dataPro[i].total}</td>
-            <td>${dataPro[i].category}</td>
-            <td><button onclick='updateData(${i})' id="update">update</button></td>
-            <td><button onclick='deleteItem(${i})' id="delete">delete</button></td>
-        </tr>`
+            `<tr>
+        <td>${i + 1}</td>
+        <td>${dataPro[i].title}</td>
+        <td>${dataPro[i].price}</td>
+        <td>${dataPro[i].taxes}</td>
+        <td>${dataPro[i].ads}</td>
+        <td>${dataPro[i].discount}</td>
+        <td>${dataPro[i].total}</td>
+        <td>${dataPro[i].category}</td>
+        <td><button onclick='updateData(${i})' id="update">update</button></td>
+        <td><button onclick='deleteItem(${i})' id="delete">delete</button></td>
+    </tr>`
     }
     document.getElementById('tbody').innerHTML = table;
     if (dataPro.length > 0) {
-        deleteBtn.innerHTML=` <button onclick='deleteAll()'>Delete All ${dataPro.length}</button> `
+        deleteBtn.innerHTML = `<button onclick='deleteAll()'>Delete All ${dataPro.length}</button> `
     } else {
         deleteBtn.innerHTML = ``;
     }
 }
 showData();
 
+title.addEventListener('input', (event) => {
+    event.preventDefault();
+    if (/[0-9]/.test(title.value) || title.value.trim() =='') {
+        alert('Enter Text in the Title متبقاش رخم')
+    }
+});
+category.addEventListener('input', (event) => {
+    event.preventDefault();
+    if (/[0-9]/.test(category.value) || category.value.trim() =='') {
+        alert('Enter Text in the Title متبقاش رخم')
+    }
+});
+
+
+//OTHER WAY⬆️
+// title.addEventListener('input', function() {
+//   if (/^\d+$/.test(this.value)) {                   //  '^\d+$'
+//     alert('Please enter text in the Title field');
+//     this.value = '';
+//   } else {
+//     this.value = this.value.replace(/\d/g, '');
+//     }
+// });
 
 //fun delete
 deleteItem = (i) => {

@@ -16,21 +16,21 @@
             <p>PRODUCT MANAGMENT SYSTEM</p> 
         </header>
         
-        <section class="inputs">
-            <input type="text" placeholder="Title" id="title" required>
-            <div class="price">
-                <input onkeyup="getTotal()" type="number" id="price" placeholder="Price">
-                <input onkeyup="getTotal()" type="number" id="taxes" placeholder="Taxes">
-                <input onkeyup="getTotal()" type="number" id="ads" placeholder="Ads">
-                <input onkeyup="getTotal()" type="number" id="discount" placeholder="Discount">
-                <small id="total"> </small>
-            </div>
-            <input type="numder" placeholder="Count" id="count" >
-            <input type="text" placeholder="Category" id="category" >
-            <button id="submit">Create</button>
-
-
-        </section>
+        <form id="form">
+            <section class="inputs">
+                <input type="text" placeholder="Title" id="title" required>
+                <div class="price">
+                    <input onkeyup="getTotal()" type="number" id="price" placeholder="Price" required>
+                    <input onkeyup="getTotal()" type="number" id="taxes" placeholder="Taxes">
+                    <input onkeyup="getTotal()" type="number" id="ads" placeholder="Ads">
+                    <input onkeyup="getTotal()" type="number" id="discount" placeholder="Discount">
+                    <small id="total"> </small>
+                </div>
+                <input type="number" placeholder="Count" id="count" >
+                <input type="text" placeholder="Category" id="category" required>
+                <button id="submit" type="submit">Create</button>
+            </section>
+        </form>
 
 
 
